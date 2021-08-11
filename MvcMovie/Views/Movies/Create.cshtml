@@ -1,92 +1,53 @@
-﻿<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create - Movie App</title>
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/site.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/Movies">Movie App</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-
-
-            <h1>Create</h1>
-
-            <h4>Movie</h4>
-            <hr>
-            <div class="row">
-                <div class="col-md-4">
-                    <form action="/Movies/Create" method="post" novalidate="novalidate">
-
-                        <div class="form-group">
-                            <label class="control-label" for="Title">Title</label>
-                            <input class="form-control" type="text" id="Title" name="Title" value="">
-                            <span class="text-danger field-validation-valid" data-valmsg-for="Title" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="ReleaseDate">Release Date</label>
-                            <input class="form-control" type="date" data-val="true" data-val-required="The Release Date field is required." id="ReleaseDate" name="ReleaseDate" value="">
-                            <span class="text-danger field-validation-valid" data-valmsg-for="ReleaseDate" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="Genre">Genre</label>
-                            <input class="form-control" type="text" id="Genre" name="Genre" value="">
-                            <span class="text-danger field-validation-valid" data-valmsg-for="Genre" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="Price">Price</label>
-                            <input class="form-control" type="text" data-val="true" data-val-number="The field Price must be a number." data-val-required="The Price field is required." id="Price" name="Price" value="">
-                            <span class="text-danger field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary">
-                        </div>
-                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KxqcIU0DAVIrF_xIBoX1Git6zQ2iv41PCYE4tP2R-IKN0Kd8ebUUF2gg-q8cuNC_jwuA6njOl0HHIYW5g1GXwlbNWOp6d10NNrOoVzSbeg9PBWZS5vWgLUa2-irR08k0da2EORqABrAWzrzrdoXbQE">
-                    </form>
-                </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
-
-            <div>
-                <a href="/Movies">Back to List</a>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
-
-
-        </main>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            © 2020 - Movie App - <a href="/Home/Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
-    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-
-
-</body>
-</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
